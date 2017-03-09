@@ -6,8 +6,9 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/v3.5/main" >> /etc/apk/repositories
 
 ENV ERLANG_PKG_VERSION=19.1.0-r0 \
     RABBITMQ_VERSION=3.6.6 \
-    RABBITMQ_HOME=/rabbitmq \
-    PATH=${RABBITMQ_HOME}/sbin:$PATH
+    RABBITMQ_HOME=/rabbitmq
+
+ENV PATH=${RABBITMQ_HOME}/sbin:$PATH
 
 RUN apk add --update --no-cache curl tar xz && \
     apk add erlang=${ERLANG_PKG_VERSION} \
